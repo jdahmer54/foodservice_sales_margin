@@ -1,0 +1,9 @@
+unique_name: Placed_Submission_Count
+object_type: metric
+label: Placed Submission Count
+description: Count of submissions that became the winning placement.
+calculation_method: sum
+dataset: fact_submission
+column: is_placed_flag
+folder: Order-to-Fill Velocity
+unrelated_dimensions_handling: repeat

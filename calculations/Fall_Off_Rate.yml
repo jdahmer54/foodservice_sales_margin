@@ -1,0 +1,11 @@
+unique_name: Fall_Off_Rate
+object_type: metric_calc
+label: Fall Off Rate
+description: Fall Off Count / Placement Count.
+expression: 'CASE WHEN ISEMPTY([Measures].[Placement_Count]) THEN NULL
+
+  ELSE [Measures].[Fall_Off_Count] / [Measures].[Placement_Count]
+
+  END'
+folder: Retention, Extension & Redeployment
+format: percent

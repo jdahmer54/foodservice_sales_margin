@@ -1,0 +1,15 @@
+unique_name: dim_specialty
+object_type: dataset
+label: dim_specialty
+description: One row per clinical specialty (nursing and allied health).
+connection_id: Staffing Ops Connection
+table: dim_specialty
+columns:
+- name: specialty_id
+  data_type: long
+- name: specialty_name
+  data_type: string
+- name: specialty_group
+  data_type: string
+- name: care_setting
+  data_type: string

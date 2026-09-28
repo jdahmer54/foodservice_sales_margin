@@ -1,0 +1,27 @@
+unique_name: fact_rate_benchmark
+object_type: dataset
+label: fact_rate_benchmark
+description: One row per specialty x market x month (pairs with real demand only).
+connection_id: Staffing Ops Connection
+table: fact_rate_benchmark
+columns:
+- name: rate_benchmark_id
+  data_type: long
+- name: specialty_id
+  data_type: long
+- name: market_id
+  data_type: long
+- name: month_id
+  data_type: long
+- name: month_label
+  data_type: string
+- name: order_volume
+  data_type: long
+- name: filled_count
+  data_type: long
+- name: fill_rate
+  data_type: double
+- name: our_avg_bill_rate_hourly
+  data_type: decimal(18,2)
+- name: market_benchmark_bill_rate_hourly
+  data_type: decimal(18,2)

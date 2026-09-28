@@ -1,0 +1,9 @@
+unique_name: Below_Target_Margin_Count
+object_type: metric
+label: Below Target Margin Count
+description: Count of placements with gross_margin_hourly below the $15/hr target margin threshold.
+calculation_method: sum
+dataset: fact_placement
+column: is_below_target_margin_flag
+folder: Bill-Pay Margin Integrity
+unrelated_dimensions_handling: repeat

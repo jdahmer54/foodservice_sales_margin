@@ -1,0 +1,25 @@
+unique_name: dim_facility
+object_type: dataset
+label: dim_facility
+description: One row per hospital / facility site.
+connection_id: Staffing Ops Connection
+table: dim_facility
+columns:
+- name: facility_id
+  data_type: long
+- name: facility_name
+  data_type: string
+- name: client_id
+  data_type: long
+- name: market_id
+  data_type: long
+- name: state
+  data_type: string
+- name: region
+  data_type: string
+- name: facility_type
+  data_type: string
+- name: care_setting
+  data_type: string
+- name: bed_size_band
+  data_type: string

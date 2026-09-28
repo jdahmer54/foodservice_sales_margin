@@ -1,0 +1,9 @@
+unique_name: Avg_Bill_Rate_Hourly
+object_type: metric
+label: Avg Bill Rate Hourly
+description: Average client bill rate, USD/hr.
+calculation_method: average
+dataset: fact_placement
+column: bill_rate_hourly
+folder: Bill-Pay Margin Integrity
+unrelated_dimensions_handling: repeat

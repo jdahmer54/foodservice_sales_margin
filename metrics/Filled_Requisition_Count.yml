@@ -1,0 +1,9 @@
+unique_name: Filled_Requisition_Count
+object_type: metric
+label: Filled Requisition Count
+description: Count of requisitions with status = Filled.
+calculation_method: sum
+dataset: fact_requisition
+column: is_filled_flag
+folder: Order-to-Fill Velocity
+unrelated_dimensions_handling: repeat

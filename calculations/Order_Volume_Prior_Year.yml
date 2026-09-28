@@ -1,0 +1,13 @@
+unique_name: Order_Volume_Prior_Year
+object_type: metric_calc
+label: Order Volume Prior Year
+description: 'Order Volume for the same period one year earlier (Rule 13: ParallelPeriod at Year, not
+  Lag(12)).'
+expression: 'CASE WHEN ISEMPTY([Measures].[Order_Volume]) THEN NULL
+
+  ELSE (ParallelPeriod([Date Dimension].[Date Hierarchy].[Year], 1, [Date Dimension].[Date Hierarchy].CurrentMember),
+  [Measures].[Order_Volume])
+
+  END'
+folder: Rate Competitiveness & Demand
+format: standard

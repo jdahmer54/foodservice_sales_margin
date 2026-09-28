@@ -1,0 +1,9 @@
+unique_name: Avg_Pay_Rate_Hourly
+object_type: metric
+label: Avg Pay Rate Hourly
+description: Average clinician pay rate, USD/hr.
+calculation_method: average
+dataset: fact_placement
+column: pay_rate_hourly
+folder: Bill-Pay Margin Integrity
+unrelated_dimensions_handling: repeat

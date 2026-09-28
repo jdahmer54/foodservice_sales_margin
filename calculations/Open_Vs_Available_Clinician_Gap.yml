@@ -1,0 +1,12 @@
+unique_name: Open_Vs_Available_Clinician_Gap
+object_type: metric_calc
+label: Open Vs Available Clinician Gap
+description: Open Requisition Count minus Available Compliant Clinician Count, by specialty — a positive
+  gap means more open demand than available compliant supply.
+expression: 'CASE WHEN ISEMPTY([Measures].[Open_Requisition_Count]) THEN NULL
+
+  ELSE [Measures].[Open_Requisition_Count] - [Measures].[Available_Compliant_Clinician_Count]
+
+  END'
+folder: Order-to-Fill Velocity
+format: standard

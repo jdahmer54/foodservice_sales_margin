@@ -1,0 +1,50 @@
+unique_name: Clinician Dimension
+object_type: dimension
+label: Clinician Dimension
+description: Clinician (traveler) in the talent pool.
+type: standard
+hierarchies:
+- unique_name: Clinician Hierarchy
+  label: Clinician Hierarchy
+  folder: Clinician Attributes
+  levels:
+  - unique_name: Clinician
+    secondary_attributes:
+    - unique_name: Home State
+      label: Home State
+      description: Clinician's home state.
+      dataset: dim_clinician
+      name_column: home_state
+      key_columns:
+      - home_state
+    - unique_name: Years Experience
+      label: Years Experience
+      description: Years of clinical experience.
+      dataset: dim_clinician
+      name_column: years_experience
+      key_columns:
+      - years_experience
+    - unique_name: Compact License Holder
+      label: Compact License Holder
+      description: True if the clinician holds a multistate Nurse Licensure Compact license.
+      dataset: dim_clinician
+      name_column: compact_license_holder
+      key_columns:
+      - compact_license_holder
+    - unique_name: Current Status
+      label: Current Status
+      description: 'As-of-today status: Available - Compliant / Available - Credentialing Pending / On
+        Assignment / Inactive.'
+      dataset: dim_clinician
+      name_column: current_status
+      key_columns:
+      - current_status
+level_attributes:
+- unique_name: Clinician
+  label: Clinician
+  description: Clinician (traveler).
+  is_unique_key: true
+  dataset: dim_clinician
+  name_column: clinician_name
+  key_columns:
+  - clinician_id

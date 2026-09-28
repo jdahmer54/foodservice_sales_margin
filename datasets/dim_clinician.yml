@@ -1,0 +1,25 @@
+unique_name: dim_clinician
+object_type: dataset
+label: dim_clinician
+description: One row per clinician (traveler) in the talent pool. Also carries the Available-Compliant-Clinician-Count
+  measure (joined into the model by primary_specialty_id so it can be sliced by Specialty Dimension).
+connection_id: Staffing Ops Connection
+table: dim_clinician
+columns:
+- name: clinician_id
+  data_type: long
+- name: clinician_name
+  data_type: string
+- name: primary_specialty_id
+  data_type: long
+- name: home_state
+  data_type: string
+- name: years_experience
+  data_type: double
+- name: compact_license_holder
+  data_type: boolean
+- name: current_status
+  data_type: string
+- name: is_available_compliant_flag
+  data_type: long
+  sql: CASE WHEN current_status = 'Available - Compliant' THEN 1 ELSE 0 END

@@ -1,0 +1,9 @@
+unique_name: Benchmark_Filled_Count
+object_type: metric
+label: Benchmark Filled Count
+description: Of the requisitions in Order Volume, how many were (eventually) filled.
+calculation_method: sum
+dataset: fact_rate_benchmark
+column: filled_count
+folder: Rate Competitiveness & Demand
+unrelated_dimensions_handling: repeat

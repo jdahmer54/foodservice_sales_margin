@@ -1,0 +1,13 @@
+unique_name: dim_reason_code
+object_type: dataset
+label: dim_reason_code
+description: One row per cancellation / fall-off reason code.
+connection_id: Staffing Ops Connection
+table: dim_reason_code
+columns:
+- name: reason_code_id
+  data_type: long
+- name: reason_code_name
+  data_type: string
+- name: reason_category
+  data_type: string

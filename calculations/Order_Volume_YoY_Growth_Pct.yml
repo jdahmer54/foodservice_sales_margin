@@ -1,0 +1,11 @@
+unique_name: Order_Volume_YoY_Growth_Pct
+object_type: metric_calc
+label: Order Volume YoY Growth Pct
+description: (Order Volume - Order Volume Prior Year) / Order Volume Prior Year.
+expression: 'CASE WHEN ISEMPTY([Measures].[Order_Volume_Prior_Year]) THEN NULL
+
+  ELSE ([Measures].[Order_Volume] - [Measures].[Order_Volume_Prior_Year]) / [Measures].[Order_Volume_Prior_Year]
+
+  END'
+folder: Rate Competitiveness & Demand
+format: percent

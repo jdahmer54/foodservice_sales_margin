@@ -1,0 +1,11 @@
+unique_name: Fall_Off_Rate_Prior_Quarter
+object_type: metric_calc
+label: Fall Off Rate Prior Quarter
+description: Fall Off Rate for the immediately preceding quarter (adjacent-period PrevMember).
+expression: 'CASE WHEN ISEMPTY([Measures].[Fall_Off_Rate]) THEN NULL
+
+  ELSE ([Date Dimension].[Date Hierarchy].[Quarter].CurrentMember.PrevMember, [Measures].[Fall_Off_Rate])
+
+  END'
+folder: Retention, Extension & Redeployment
+format: percent

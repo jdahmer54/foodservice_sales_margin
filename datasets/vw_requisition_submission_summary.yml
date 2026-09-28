@@ -1,0 +1,37 @@
+unique_name: vw_requisition_submission_summary
+object_type: dataset
+label: vw_requisition_submission_summary
+description: 'Query dataset (Rule 15): one row per requisition, enriched with a per-requisition submission
+  count via a LEFT JOIN + GROUP BY against fact_submission — needed because ''zero submissions'' is a
+  one-to-many anti-join condition that a snowflake relationship cannot express. Backs the stale zero-submission
+  open-order metric (NLQ 1.2).'
+connection_id: Staffing Ops Connection
+sql: "SELECT\n  r.requisition_id AS requisition_id,\n  r.market_id AS market_id,\n  r.msp_program_id AS\
+  \ msp_program_id,\n  r.specialty_id AS specialty_id,\n  r.posted_date AS posted_date,\n  r.status AS\
+  \ status,\n  r.age_days_as_of_current AS age_days_as_of_current,\n  COUNT(sub.submission_id) AS submission_count,\n\
+  \  CASE WHEN COUNT(sub.submission_id) = 0 THEN 1 ELSE 0 END AS zero_submission_flag,\n  CASE WHEN r.status\
+  \ = 'Open' AND r.age_days_as_of_current > 21\n            AND COUNT(sub.submission_id) = 0 THEN 1 ELSE\
+  \ 0 END AS stale_zero_submission_open_flag\nFROM main.se_library.fact_requisition r\nLEFT JOIN main.se_library.fact_submission\
+  \ sub ON r.requisition_id = sub.requisition_id\nGROUP BY r.requisition_id, r.market_id, r.msp_program_id,\
+  \ r.specialty_id, r.posted_date,\n         r.status, r.age_days_as_of_current"
+columns:
+- name: requisition_id
+  data_type: long
+- name: market_id
+  data_type: long
+- name: msp_program_id
+  data_type: long
+- name: specialty_id
+  data_type: long
+- name: posted_date
+  data_type: date
+- name: status
+  data_type: string
+- name: age_days_as_of_current
+  data_type: long
+- name: submission_count
+  data_type: long
+- name: zero_submission_flag
+  data_type: long
+- name: stale_zero_submission_open_flag
+  data_type: long

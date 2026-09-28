@@ -1,0 +1,36 @@
+unique_name: Specialty Dimension
+object_type: dimension
+label: Specialty Dimension
+description: 'Clinical specialty: Specialty Group (Nursing/Allied Health) > Specialty.'
+type: standard
+hierarchies:
+- unique_name: Specialty Hierarchy
+  label: Specialty Hierarchy
+  folder: Specialty Attributes
+  levels:
+  - unique_name: Specialty Group
+  - unique_name: Specialty
+    secondary_attributes:
+    - unique_name: Care Setting
+      label: Care Setting
+      description: Acute Care / Behavioral Health / Rehab / Outpatient.
+      dataset: dim_specialty
+      name_column: care_setting
+      key_columns:
+      - care_setting
+level_attributes:
+- unique_name: Specialty Group
+  label: Specialty Group
+  description: Nursing or Allied Health.
+  dataset: dim_specialty
+  name_column: specialty_group
+  key_columns:
+  - specialty_group
+- unique_name: Specialty
+  label: Specialty
+  description: Clinical specialty (e.g. ICU / Critical Care RN).
+  is_unique_key: true
+  dataset: dim_specialty
+  name_column: specialty_name
+  key_columns:
+  - specialty_id

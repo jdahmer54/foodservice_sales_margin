@@ -1,0 +1,9 @@
+unique_name: Compliant_Item_Count
+object_type: metric
+label: Compliant Item Count
+description: Count of credential items that are approved/compliant as of the as-of date.
+calculation_method: sum
+dataset: fact_credential_item_enriched
+column: is_compliant_flag
+folder: Credentialing & Start-Date Risk
+unrelated_dimensions_handling: repeat

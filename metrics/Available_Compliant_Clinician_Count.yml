@@ -1,0 +1,11 @@
+unique_name: Available_Compliant_Clinician_Count
+object_type: metric
+label: Available Compliant Clinician Count
+description: Count of clinicians currently 'Available - Compliant' in the talent pool, by primary specialty.
+  Defined on dim_clinician and attached to the model via a relationship to Specialty Dimension (Rule 20
+  — a metric's dataset must be joined into the model as a fact).
+calculation_method: sum
+dataset: dim_clinician
+column: is_available_compliant_flag
+folder: Order-to-Fill Velocity
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,11 @@
+unique_name: Benchmark_Fill_Rate
+object_type: metric_calc
+label: Benchmark Fill Rate
+description: Benchmark Filled Count / Order Volume, at specialty x market x month grain.
+expression: 'CASE WHEN ISEMPTY([Measures].[Order_Volume]) THEN NULL
+
+  ELSE [Measures].[Benchmark_Filled_Count] / [Measures].[Order_Volume]
+
+  END'
+folder: Rate Competitiveness & Demand
+format: percent

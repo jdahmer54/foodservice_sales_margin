@@ -1,0 +1,28 @@
+unique_name: MSP Program Dimension
+object_type: dimension
+label: MSP Program Dimension
+description: 'Staffing channel: Program Type (Direct/MSP) > Program.'
+type: standard
+hierarchies:
+- unique_name: MSP Program Hierarchy
+  label: MSP Program Hierarchy
+  folder: Channel Attributes
+  levels:
+  - unique_name: Program Type
+  - unique_name: Program
+level_attributes:
+- unique_name: Program Type
+  label: Program Type
+  description: Direct or MSP.
+  dataset: dim_msp_program
+  name_column: program_type
+  key_columns:
+  - program_type
+- unique_name: Program
+  label: Program
+  description: MSP/VMS program name, or 'Direct (Non-MSP)'.
+  is_unique_key: true
+  dataset: dim_msp_program
+  name_column: program_name
+  key_columns:
+  - msp_program_id

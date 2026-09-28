@@ -1,0 +1,9 @@
+unique_name: Order_Volume
+object_type: metric
+label: Order Volume
+description: Requisitions posted, at specialty x market x month grain (fact_rate_benchmark).
+calculation_method: sum
+dataset: fact_rate_benchmark
+column: order_volume
+folder: Rate Competitiveness & Demand
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,9 @@
+unique_name: No_Next_Assignment_Count
+object_type: metric
+label: No Next Assignment Count
+description: Count of placements with no next assignment booked yet for that clinician.
+calculation_method: sum
+dataset: fact_placement
+column: no_next_assignment_flag
+folder: Retention, Extension & Redeployment
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,13 @@
+unique_name: dim_msp_program
+object_type: dataset
+label: dim_msp_program
+description: One row per MSP/VMS program, plus one 'Direct (Non-MSP)' row.
+connection_id: Staffing Ops Connection
+table: dim_msp_program
+columns:
+- name: msp_program_id
+  data_type: long
+- name: program_name
+  data_type: string
+- name: program_type
+  data_type: string

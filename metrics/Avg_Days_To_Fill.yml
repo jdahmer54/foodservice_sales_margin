@@ -1,0 +1,9 @@
+unique_name: Avg_Days_To_Fill
+object_type: metric
+label: Avg Days To Fill
+description: Average days from posted_date to filled_date (Filled requisitions only).
+calculation_method: average
+dataset: fact_requisition
+column: days_to_fill
+folder: Order-to-Fill Velocity
+unrelated_dimensions_handling: repeat

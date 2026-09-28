@@ -1,0 +1,9 @@
+unique_name: Avg_Our_Bill_Rate
+object_type: metric
+label: Avg Our Bill Rate
+description: Medical Solutions' average posted bill rate, USD/hr, at specialty x market x month grain.
+calculation_method: average
+dataset: fact_rate_benchmark
+column: our_avg_bill_rate_hourly
+folder: Rate Competitiveness & Demand
+unrelated_dimensions_handling: repeat

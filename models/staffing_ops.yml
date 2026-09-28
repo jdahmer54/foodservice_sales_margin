@@ -1,0 +1,355 @@
+unique_name: staffing_ops
+object_type: model
+label: Staffing Operations Model
+description: 'Order-to-cash staffing operations model: requisitions, submissions, placements, credentialing,
+  and rate benchmarking for a travel-nurse / allied-health staffing agency. Covers order-to-fill velocity,
+  bill/pay margin integrity, clinician retention and redeployment, credentialing/start-date risk, recruiter
+  productivity, and rate competitiveness / demand forecasting.'
+visible: true
+relationships:
+- unique_name: fact_requisition_Facility
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - facility_id
+  to:
+    dimension: Facility Dimension
+    level: Facility
+- unique_name: fact_requisition_Client
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - client_id
+  to:
+    dimension: Client Dimension
+    level: Client
+- unique_name: fact_requisition_Market
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - market_id
+  to:
+    dimension: Market Dimension
+    level: MSA
+- unique_name: fact_requisition_Specialty
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+- unique_name: fact_requisition_MSPProgram
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - msp_program_id
+  to:
+    dimension: MSP Program Dimension
+    level: Program
+- unique_name: fact_requisition_Date_Posted
+  from:
+    dataset: fact_requisition
+    join_columns:
+    - posted_date
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_submission_Clinician
+  from:
+    dataset: fact_submission
+    join_columns:
+    - clinician_id
+  to:
+    dimension: Clinician Dimension
+    level: Clinician
+- unique_name: fact_submission_Recruiter
+  from:
+    dataset: fact_submission
+    join_columns:
+    - recruiter_id
+  to:
+    dimension: Recruiter Dimension
+    level: Recruiter
+- unique_name: fact_submission_Date_Submission
+  from:
+    dataset: fact_submission
+    join_columns:
+    - submission_date
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_placement_Clinician
+  from:
+    dataset: fact_placement
+    join_columns:
+    - clinician_id
+  to:
+    dimension: Clinician Dimension
+    level: Clinician
+- unique_name: fact_placement_Facility
+  from:
+    dataset: fact_placement
+    join_columns:
+    - facility_id
+  to:
+    dimension: Facility Dimension
+    level: Facility
+- unique_name: fact_placement_Client
+  from:
+    dataset: fact_placement
+    join_columns:
+    - client_id
+  to:
+    dimension: Client Dimension
+    level: Client
+- unique_name: fact_placement_Specialty
+  from:
+    dataset: fact_placement
+    join_columns:
+    - specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+- unique_name: fact_placement_Recruiter
+  from:
+    dataset: fact_placement
+    join_columns:
+    - recruiter_id
+  to:
+    dimension: Recruiter Dimension
+    level: Recruiter
+- unique_name: fact_placement_MSPProgram
+  from:
+    dataset: fact_placement
+    join_columns:
+    - msp_program_id
+  to:
+    dimension: MSP Program Dimension
+    level: Program
+- unique_name: fact_placement_ReasonCode
+  from:
+    dataset: fact_placement
+    join_columns:
+    - reason_code_id
+  to:
+    dimension: Reason Code Dimension
+    level: Reason Code
+- unique_name: fact_placement_Date_Start
+  from:
+    dataset: fact_placement
+    join_columns:
+    - start_date
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_placement_Date_ScheduledEnd
+  from:
+    dataset: fact_placement
+    join_columns:
+    - scheduled_end_date
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Scheduled End {0}
+- unique_name: fact_placement_Date_ActualEnd
+  from:
+    dataset: fact_placement
+    join_columns:
+    - actual_end_date
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Actual End {0}
+- unique_name: vw_requisition_submission_summary_Market
+  from:
+    dataset: vw_requisition_submission_summary
+    join_columns:
+    - market_id
+  to:
+    dimension: Market Dimension
+    level: MSA
+- unique_name: vw_requisition_submission_summary_MSPProgram
+  from:
+    dataset: vw_requisition_submission_summary
+    join_columns:
+    - msp_program_id
+  to:
+    dimension: MSP Program Dimension
+    level: Program
+- unique_name: vw_requisition_submission_summary_Specialty
+  from:
+    dataset: vw_requisition_submission_summary
+    join_columns:
+    - specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+- unique_name: vw_requisition_submission_summary_Date_Posted
+  from:
+    dataset: vw_requisition_submission_summary
+    join_columns:
+    - posted_date
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_credential_item_enriched_CredentialType
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - document_type_id
+  to:
+    dimension: Credential Type Dimension
+    level: Document Type
+- unique_name: fact_credential_item_enriched_Clinician
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - clinician_id
+  to:
+    dimension: Clinician Dimension
+    level: Clinician
+- unique_name: fact_credential_item_enriched_Facility
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - facility_id
+  to:
+    dimension: Facility Dimension
+    level: Facility
+- unique_name: fact_credential_item_enriched_Specialty
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+- unique_name: fact_credential_item_enriched_Client
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - client_id
+  to:
+    dimension: Client Dimension
+    level: Client
+- unique_name: fact_credential_item_enriched_Recruiter
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - recruiter_id
+  to:
+    dimension: Recruiter Dimension
+    level: Recruiter
+- unique_name: fact_credential_item_enriched_MSPProgram
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - msp_program_id
+  to:
+    dimension: MSP Program Dimension
+    level: Program
+- unique_name: fact_credential_item_enriched_Date_Due
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - due_date
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_credential_item_enriched_Date_Completed
+  from:
+    dataset: fact_credential_item_enriched
+    join_columns:
+    - completed_date
+  to:
+    dimension: Date Dimension
+    level: Day
+  role_play: Completed {0}
+- unique_name: fact_rate_benchmark_Specialty
+  from:
+    dataset: fact_rate_benchmark
+    join_columns:
+    - specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+- unique_name: fact_rate_benchmark_Market
+  from:
+    dataset: fact_rate_benchmark
+    join_columns:
+    - market_id
+  to:
+    dimension: Market Dimension
+    level: MSA
+- unique_name: fact_rate_benchmark_Date_Month
+  from:
+    dataset: fact_rate_benchmark
+    join_columns:
+    - month_id
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: dim_clinician_Specialty
+  from:
+    dataset: dim_clinician
+    join_columns:
+    - primary_specialty_id
+  to:
+    dimension: Specialty Dimension
+    level: Specialty
+dimensions:
+- Requisition Status Dimension
+- Assignment Status Dimension
+metrics:
+- unique_name: Requisition_Count
+- unique_name: Filled_Requisition_Count
+- unique_name: Open_Requisition_Count
+- unique_name: Cancelled_Requisition_Count
+- unique_name: Avg_Days_To_Fill
+- unique_name: Avg_Age_Days_Open
+- unique_name: Avg_Target_Bill_Rate
+- unique_name: Stale_Zero_Submission_Open_Order_Count
+- unique_name: Submission_Count
+- unique_name: Offer_Extended_Count
+- unique_name: Placed_Submission_Count
+- unique_name: Placement_Count
+- unique_name: Avg_Gross_Margin_Hourly
+- unique_name: Avg_Bill_Rate_Hourly
+- unique_name: Avg_Pay_Rate_Hourly
+- unique_name: Gross_Profit
+- unique_name: Below_Target_Margin_Count
+- unique_name: Extension_Count
+- unique_name: Fall_Off_Count
+- unique_name: No_Next_Assignment_Count
+- unique_name: Avg_Gap_Days_To_Next_Assignment
+- unique_name: Credential_Item_Count
+- unique_name: Compliant_Item_Count
+- unique_name: Outstanding_Item_Count
+- unique_name: Delayed_Start_Item_Count
+- unique_name: Avg_Days_Offer_Accepted_To_Completed
+- unique_name: Order_Volume
+- unique_name: Benchmark_Filled_Count
+- unique_name: Avg_Our_Bill_Rate
+- unique_name: Avg_Market_Benchmark_Bill_Rate
+- unique_name: Available_Compliant_Clinician_Count
+- unique_name: Fill_Rate
+- unique_name: Offer_Conversion_Rate
+- unique_name: Placement_Conversion_Rate
+- unique_name: Extension_Rate
+- unique_name: Fall_Off_Rate
+- unique_name: Below_Target_Margin_Rate
+- unique_name: Credentialing_Compliance_Rate
+- unique_name: Submissions_Per_Placement
+- unique_name: Open_Vs_Available_Clinician_Gap
+- unique_name: Bill_Rate_Vs_Benchmark_Gap_Hourly
+- unique_name: Bill_Rate_Index_Vs_Market
+- unique_name: Benchmark_Fill_Rate
+- unique_name: Order_Volume_Prior_Year
+- unique_name: Order_Volume_YoY_Growth_Pct
+- unique_name: Benchmark_Fill_Rate_Prior_Year
+- unique_name: Benchmark_Fill_Rate_YoY_Change_Pct
+- unique_name: Gross_Margin_Prior_Quarter
+- unique_name: Gross_Margin_QoQ_Change_Hourly
+- unique_name: Fall_Off_Rate_Prior_Quarter
+- unique_name: Fall_Off_Rate_QoQ_Change_Pct

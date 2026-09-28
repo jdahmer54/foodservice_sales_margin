@@ -1,0 +1,19 @@
+unique_name: Assignment Status Dimension
+object_type: dimension
+label: Assignment Status Dimension
+description: 'Degenerate: assignment status (Upcoming/Active/Completed/Cancelled-FellOff), fact-resident
+  on fact_placement.'
+is_degenerate: true
+hierarchies:
+- unique_name: Assignment Status Hierarchy
+  label: Assignment Status Hierarchy
+  levels:
+  - unique_name: Assignment Status
+level_attributes:
+- unique_name: Assignment Status
+  label: Assignment Status
+  description: Upcoming / Active / Completed / Cancelled/Fell Off.
+  dataset: fact_placement
+  name_column: assignment_status
+  key_columns:
+  - assignment_status

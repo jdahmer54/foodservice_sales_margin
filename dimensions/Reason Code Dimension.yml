@@ -1,0 +1,28 @@
+unique_name: Reason Code Dimension
+object_type: dimension
+label: Reason Code Dimension
+description: 'Cancellation / fall-off reason: Reason Category > Reason Code.'
+type: standard
+hierarchies:
+- unique_name: Reason Code Hierarchy
+  label: Reason Code Hierarchy
+  folder: Reason Code Attributes
+  levels:
+  - unique_name: Reason Category
+  - unique_name: Reason Code
+level_attributes:
+- unique_name: Reason Category
+  label: Reason Category
+  description: Client-Initiated / Clinician-Initiated / Compliance.
+  dataset: dim_reason_code
+  name_column: reason_category
+  key_columns:
+  - reason_category
+- unique_name: Reason Code
+  label: Reason Code
+  description: Fall-off / cancellation reason.
+  is_unique_key: true
+  dataset: dim_reason_code
+  name_column: reason_code_name
+  key_columns:
+  - reason_code_id

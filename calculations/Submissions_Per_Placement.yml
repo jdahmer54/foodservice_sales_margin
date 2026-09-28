@@ -1,0 +1,11 @@
+unique_name: Submissions_Per_Placement
+object_type: metric_calc
+label: Submissions Per Placement
+description: Submission Count / Placed Submission Count.
+expression: 'CASE WHEN ISEMPTY([Measures].[Placed_Submission_Count]) THEN NULL
+
+  ELSE [Measures].[Submission_Count] / [Measures].[Placed_Submission_Count]
+
+  END'
+folder: Recruiter & Sales Productivity
+format: standard

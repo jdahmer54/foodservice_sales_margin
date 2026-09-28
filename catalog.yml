@@ -1,0 +1,9 @@
+version: 1.7
+unique_name: staffing_ops_catalog
+object_type: catalog
+label: Staffing Operations Semantic Model Library
+description: 'Semantic model library for a travel-nurse / allied-health staffing operations order-to-cash
+  lifecycle: order-to-fill velocity, bill/pay margin integrity, clinician retention and redeployment,
+  credentialing and start-date risk, recruiter productivity, and rate competitiveness / demand forecasting.'
+aggressive_agg_promotion: false
+build_speculative_aggs: false

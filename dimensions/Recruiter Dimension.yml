@@ -1,0 +1,68 @@
+unique_name: Recruiter Dimension
+object_type: dimension
+label: Recruiter Dimension
+description: Recruiter rolled up by Team. Snowflaked across two physical tables (dim_recruiter_team, dim_recruiter)
+  as ONE dimension per Rule 5.
+type: standard
+hierarchies:
+- unique_name: Recruiter Hierarchy
+  label: Recruiter Hierarchy
+  folder: Recruiter Attributes
+  levels:
+  - unique_name: Team
+    secondary_attributes:
+    - unique_name: Team Lead Name
+      label: Team Lead Name
+      description: Team lead's name.
+      dataset: dim_recruiter_team
+      name_column: team_lead_name
+      key_columns:
+      - team_lead_name
+    - unique_name: Team Focus Region
+      label: Team Focus Region
+      description: Ops region this team primarily covers.
+      dataset: dim_recruiter_team
+      name_column: team_focus_region
+      key_columns:
+      - team_focus_region
+  - unique_name: Recruiter
+    secondary_attributes:
+    - unique_name: Tenure Band
+      label: Tenure Band
+      description: <1 year / 1-3 years / 3-5 years / 5+ years.
+      dataset: dim_recruiter
+      name_column: tenure_band
+      key_columns:
+      - tenure_band
+    - unique_name: Hire Date
+      label: Hire Date
+      description: Recruiter hire date.
+      dataset: dim_recruiter
+      name_column: hire_date
+      key_columns:
+      - hire_date
+level_attributes:
+- unique_name: Team
+  label: Team
+  description: Internal recruiting team.
+  is_unique_key: true
+  dataset: dim_recruiter_team
+  name_column: team_name
+  key_columns:
+  - team_id
+- unique_name: Recruiter
+  label: Recruiter
+  description: Recruiter.
+  is_unique_key: true
+  dataset: dim_recruiter
+  name_column: recruiter_name
+  key_columns:
+  - recruiter_id
+relationships:
+- from:
+    dataset: dim_recruiter
+    join_columns:
+    - team_id
+  to:
+    level: Team
+  type: snowflake

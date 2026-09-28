@@ -1,0 +1,12 @@
+unique_name: Benchmark_Fill_Rate_YoY_Change_Pct
+object_type: metric_calc
+label: Benchmark Fill Rate YoY Change Pct
+description: Benchmark Fill Rate minus Benchmark Fill Rate Prior Year, in percentage points — a negative
+  value alongside rising Order Volume YoY Growth identifies a supply-squeezed hot market.
+expression: 'CASE WHEN ISEMPTY([Measures].[Benchmark_Fill_Rate_Prior_Year]) THEN NULL
+
+  ELSE [Measures].[Benchmark_Fill_Rate] - [Measures].[Benchmark_Fill_Rate_Prior_Year]
+
+  END'
+folder: Rate Competitiveness & Demand
+format: percent

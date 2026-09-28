@@ -1,0 +1,11 @@
+unique_name: Extension_Rate
+object_type: metric_calc
+label: Extension Rate
+description: Extension Count / Placement Count.
+expression: 'CASE WHEN ISEMPTY([Measures].[Placement_Count]) THEN NULL
+
+  ELSE [Measures].[Extension_Count] / [Measures].[Placement_Count]
+
+  END'
+folder: Retention, Extension & Redeployment
+format: percent

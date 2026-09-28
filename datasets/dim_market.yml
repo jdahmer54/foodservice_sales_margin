@@ -1,0 +1,17 @@
+unique_name: dim_market
+object_type: dataset
+label: dim_market
+description: One row per U.S. Metropolitan Statistical Area (MSA / metro market).
+connection_id: Staffing Ops Connection
+table: dim_market
+columns:
+- name: market_id
+  data_type: long
+- name: msa_name
+  data_type: string
+- name: state
+  data_type: string
+- name: region
+  data_type: string
+- name: division
+  data_type: string

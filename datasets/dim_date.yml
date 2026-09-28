@@ -1,0 +1,36 @@
+unique_name: dim_date
+object_type: dataset
+label: dim_date
+description: One row per calendar day, 2023-09-01 through 2026-11-15. Backs the conformed Date Dimension.
+connection_id: Staffing Ops Connection
+table: dim_date
+columns:
+- name: date_id
+  data_type: long
+- name: date
+  data_type: date
+- name: year
+  data_type: long
+- name: quarter
+  data_type: long
+- name: quarter_label
+  data_type: string
+- name: month
+  data_type: long
+- name: month_name
+  data_type: string
+- name: month_label
+  data_type: string
+- name: day_of_month
+  data_type: long
+- name: day_of_week_num
+  data_type: long
+- name: day_of_week_name
+  data_type: string
+- name: is_weekend
+  data_type: boolean
+- name: is_current_or_future
+  data_type: boolean
+- name: prior_year_num
+  data_type: long
+  sql: year - 1

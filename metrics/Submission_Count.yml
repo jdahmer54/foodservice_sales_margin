@@ -1,0 +1,9 @@
+unique_name: Submission_Count
+object_type: metric
+label: Submission Count
+description: Count of clinician submissions against requisitions.
+calculation_method: count non-null
+dataset: fact_submission
+column: submission_id
+folder: Order-to-Fill Velocity
+unrelated_dimensions_handling: repeat
