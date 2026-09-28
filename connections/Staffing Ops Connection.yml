@@ -1,6 +1,0 @@
-unique_name: Staffing Ops Connection
-label: Staffing Ops Connection
-object_type: connection
-as_connection: Databricks
-database: main
-schema: se_library
