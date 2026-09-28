@@ -26,7 +26,7 @@ All inputs were delivered as one demo-data bundle archive and are copied verbati
 | `unrelated_dimension_handling` | `repeat` (applied to all 15 base metrics) |
 | `warehouse` | BigQuery |
 | `database` (BigQuery project) | `your-gcp-project` |
-| `schema` (BigQuery dataset) | `SYSCO_SALES_MARGIN_DEMO` |
+| `schema` (BigQuery dataset) | `SALES_MARGIN_DEMO` |
 | `model_unique_name` | `sales_margin_analytics` |
 | `catalog_unique_name` | `sales_margin_analytics_catalog` |
 | `currency` | USD |
