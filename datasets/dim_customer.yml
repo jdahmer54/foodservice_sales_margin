@@ -1,0 +1,29 @@
+unique_name: dim_customer
+object_type: dataset
+label: dim_customer
+description: 'Customer ship-to accounts: Local vs National type, segment, parent account, size tier.'
+connection_id: Connection - Sales Margin BigQuery
+table: dim_customer
+columns:
+- name: customer_id
+  data_type: long
+- name: customer_number
+  data_type: string
+- name: customer_name
+  data_type: string
+- name: customer_type
+  data_type: string
+- name: customer_segment
+  data_type: string
+- name: parent_account_name
+  data_type: string
+- name: home_opco_id
+  data_type: long
+- name: primary_site_id
+  data_type: long
+- name: account_open_date
+  data_type: date
+- name: account_close_date
+  data_type: date
+- name: size_tier
+  data_type: string

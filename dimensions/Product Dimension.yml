@@ -1,0 +1,113 @@
+unique_name: Product Dimension
+object_type: dimension
+label: Product
+description: Products by merchandise category and by brand (private label vs national brand).
+type: standard
+hierarchies:
+- unique_name: Product Category Hierarchy
+  label: Product Category
+  description: Category Group > Category > Subcategory > Product.
+  folder: Product Attributes
+  levels:
+  - unique_name: Category Group
+  - unique_name: Category
+    secondary_attributes:
+    - unique_name: Protein Flag
+      label: Protein / Non-Protein
+      description: Whether the category is center-of-plate protein (Meat, Seafood, Poultry).
+      dataset: dim_category
+      folder: Product Attributes
+      key_columns:
+      - protein_flag
+      name_column: protein_flag
+      sort_column: protein_flag
+  - unique_name: Subcategory
+  - unique_name: Product
+    secondary_attributes:
+    - unique_name: SUPC
+      label: Item Number (SUPC)
+      description: Item number.
+      dataset: dim_product
+      folder: Product Attributes
+      key_columns:
+      - supc
+      name_column: supc
+      sort_column: supc
+    - unique_name: Pack Size
+      label: Pack Size
+      description: Pack / case configuration.
+      dataset: dim_product
+      folder: Product Attributes
+      key_columns:
+      - pack_size
+      name_column: pack_size
+      sort_column: pack_size
+- unique_name: Brand Hierarchy
+  label: Brand
+  description: Brand Type (private label vs national) > Brand Name > Product.
+  folder: Product Attributes
+  levels:
+  - unique_name: Brand Type
+  - unique_name: Brand Name
+  - unique_name: Product
+level_attributes:
+- unique_name: Category Group
+  label: Category Group
+  description: Center of Plate, Fresh, Frozen, Grocery, Non-Food.
+  dataset: dim_category
+  key_columns:
+  - category_group
+  name_column: category_group
+  sort_column: category_group
+- unique_name: Category
+  label: Category
+  description: Merchandise category (e.g. Meat, Seafood, Produce); join level for the plan fact.
+  dataset: dim_category
+  is_unique_key: true
+  key_columns:
+  - category_id
+  name_column: category_name
+  sort_column: category_name
+- unique_name: Subcategory
+  label: Subcategory
+  description: Subcategory within a category (e.g. Beef, Shellfish).
+  dataset: dim_product
+  key_columns:
+  - category_id
+  - subcategory
+  name_column: subcategory
+  sort_column: subcategory
+- unique_name: Product
+  label: Product
+  description: Individual product / item; join level for the sales fact.
+  dataset: dim_product
+  is_unique_key: true
+  key_columns:
+  - product_id
+  name_column: product_description
+  sort_column: product_description
+- unique_name: Brand Type
+  label: Brand Type
+  description: Private-label (house) brand vs National Brand.
+  dataset: dim_product
+  key_columns:
+  - brand_type
+  name_column: brand_type
+  sort_column: brand_type
+- unique_name: Brand Name
+  label: Brand Name
+  description: Brand, including private-label tiers.
+  dataset: dim_product
+  key_columns:
+  - brand_type
+  - brand_name
+  name_column: brand_name
+  sort_column: brand_name
+relationships:
+- from:
+    dataset: dim_product
+    join_columns:
+    - category_id
+  to:
+    level: Category
+  type: snowflake

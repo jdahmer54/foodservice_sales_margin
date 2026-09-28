@@ -1,0 +1,58 @@
+unique_name: fact_sales
+object_type: dataset
+label: fact_sales
+description: Invoice-line sales fact with raw additive components. Governed Net Sales, Gross Profit and Cases Sold
+  are defined here once, as calculated columns.
+connection_id: Connection - Sales Margin BigQuery
+table: fact_sales
+columns:
+- name: invoice_line_id
+  data_type: long
+- name: invoice_number
+  data_type: string
+- name: invoice_line_number
+  data_type: long
+- name: invoice_date_key
+  data_type: long
+- name: customer_id
+  data_type: long
+- name: product_id
+  data_type: long
+- name: supplier_id
+  data_type: long
+- name: opco_id
+  data_type: long
+- name: site_id
+  data_type: long
+- name: order_channel
+  data_type: string
+- name: cases_shipped
+  data_type: long
+- name: cases_returned
+  data_type: long
+- name: gross_sales_amount
+  data_type: decimal(38,9)
+- name: discount_amount
+  data_type: decimal(38,9)
+- name: return_amount
+  data_type: decimal(38,9)
+- name: cogs_amount
+  data_type: decimal(38,9)
+- name: net_sales_amount
+  data_type: decimal(38,9)
+  sql: gross_sales_amount - discount_amount - return_amount
+  dialects:
+  - dialect: BigQuery
+    sql: gross_sales_amount - discount_amount - return_amount
+- name: gross_profit_amount
+  data_type: decimal(38,9)
+  sql: gross_sales_amount - discount_amount - return_amount - cogs_amount
+  dialects:
+  - dialect: BigQuery
+    sql: gross_sales_amount - discount_amount - return_amount - cogs_amount
+- name: cases_sold
+  data_type: long
+  sql: cases_shipped - cases_returned
+  dialects:
+  - dialect: BigQuery
+    sql: cases_shipped - cases_returned

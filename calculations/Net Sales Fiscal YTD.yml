@@ -1,0 +1,7 @@
+unique_name: Net Sales Fiscal YTD
+object_type: metric_calc
+label: Net Sales Fiscal YTD
+description: Net Sales fiscal year to date.
+expression: CASE WHEN ISEMPTY([Measures].[Net Sales]) THEN NULL ELSE Aggregate(PeriodsToDate([Date Dimension].[Fiscal
+  Hierarchy].[Fiscal Year], [Date Dimension].[Fiscal Hierarchy].CurrentMember), [Measures].[Net Sales]) END
+format: "$#,##0.00"

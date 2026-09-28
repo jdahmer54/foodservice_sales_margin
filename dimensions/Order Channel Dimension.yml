@@ -1,0 +1,20 @@
+unique_name: Order Channel Dimension
+object_type: dimension
+label: Order Channel
+description: How the order was placed (online ordering, sales consultant, EDI).
+is_degenerate: true
+hierarchies:
+- unique_name: Order Channel
+  label: Order Channel
+  folder: Order Attributes
+  description: Single-level grouping of invoice lines by order channel.
+  levels:
+  - unique_name: Order Channel
+level_attributes:
+- unique_name: Order Channel
+  label: Order Channel
+  description: Order channel of the invoice.
+  dataset: fact_sales
+  key_columns:
+  - order_channel
+  name_column: order_channel

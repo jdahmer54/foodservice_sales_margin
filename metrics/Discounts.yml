@@ -1,0 +1,9 @@
+unique_name: Discounts
+object_type: metric
+label: Discounts
+description: Off-invoice discounts and allowances (USD). Component of Net Sales.
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: discount_amount
+unrelated_dimensions_handling: repeat

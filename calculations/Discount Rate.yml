@@ -1,0 +1,6 @@
+unique_name: Discount Rate
+object_type: metric_calc
+label: Discount Rate
+description: Discounts / Gross Sales.
+expression: Divide([Measures].[Discounts], [Measures].[Gross Sales])
+format: percent

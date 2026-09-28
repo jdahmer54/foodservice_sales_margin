@@ -1,0 +1,7 @@
+unique_name: Gross Profit Percent Change vs Prior Year
+object_type: metric_calc
+label: Gross Profit % Change vs PY (pts)
+description: Change in Gross Profit % vs the same period of the prior fiscal year, in percentage points.
+expression: CASE WHEN ISEMPTY([Measures].[Net Sales Prior Year]) THEN NULL ELSE [Measures].[Gross Profit Percent]
+  - [Measures].[Gross Profit Percent Prior Year] END
+format: percent

@@ -1,0 +1,7 @@
+unique_name: Cases Sold YoY Growth Percent
+object_type: metric_calc
+label: Cases Sold YoY Growth %
+description: Cases Sold vs the same period of the prior fiscal year, as a percent.
+expression: CASE WHEN ISEMPTY([Measures].[Cases Sold Prior Year]) THEN NULL ELSE Divide([Measures].[Cases Sold]
+  - [Measures].[Cases Sold Prior Year], [Measures].[Cases Sold Prior Year]) END
+format: percent

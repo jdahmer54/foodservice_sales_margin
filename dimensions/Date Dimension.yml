@@ -1,0 +1,157 @@
+unique_name: Date Dimension
+object_type: dimension
+label: Date Dimension
+description: Invoice / plan date with a July-June fiscal calendar (primary) and a calendar-year view. Conformed
+  across the sales and plan facts.
+type: time
+hierarchies:
+- unique_name: Fiscal Hierarchy
+  label: Fiscal Calendar
+  description: Fiscal Year > Fiscal Quarter > Fiscal Period > Day (July-June fiscal year).
+  filter_empty: 'yes'
+  folder: Date Attributes
+  levels:
+  - unique_name: Fiscal Year
+  - unique_name: Fiscal Quarter
+    parallel_periods:
+    - key_columns:
+      - prior_fiscal_year
+      level: Fiscal Year
+    secondary_attributes:
+    - unique_name: Fiscal Quarter Number
+      label: Fiscal Quarter Number
+      description: Quarter number within the fiscal year (1-4).
+      dataset: dim_date
+      folder: Date Attributes
+      key_columns:
+      - fiscal_quarter
+      name_column: fiscal_quarter
+      sort_column: fiscal_quarter
+  - unique_name: Fiscal Period
+    parallel_periods:
+    - key_columns:
+      - prior_fiscal_year
+      level: Fiscal Year
+    secondary_attributes:
+    - unique_name: Fiscal Period Number
+      label: Fiscal Period Number
+      description: Period number within the fiscal year (1 = July).
+      dataset: dim_date
+      folder: Date Attributes
+      key_columns:
+      - fiscal_month_num
+      name_column: fiscal_month_num
+      sort_column: fiscal_month_num
+  - unique_name: Day
+    secondary_attributes:
+    - unique_name: Day of Week
+      label: Day of Week
+      description: Weekday name (Monday-Sunday).
+      dataset: dim_date
+      folder: Date Attributes
+      key_columns:
+      - day_of_week_name
+      name_column: day_of_week_name
+      sort_column: day_of_week_name
+    - unique_name: Weekday or Weekend
+      label: Weekday or Weekend
+      description: Whether the date falls on a weekday or weekend.
+      dataset: dim_date
+      folder: Date Attributes
+      key_columns:
+      - weekend_flag
+      name_column: weekend_flag
+      sort_column: weekend_flag
+- unique_name: Calendar Hierarchy
+  label: Calendar
+  description: Calendar Year > Quarter > Month > Day (January-December).
+  filter_empty: 'yes'
+  folder: Date Attributes
+  levels:
+  - unique_name: Calendar Year
+  - unique_name: Calendar Quarter
+    parallel_periods:
+    - key_columns:
+      - prior_calendar_year
+      level: Calendar Year
+  - unique_name: Calendar Month
+    parallel_periods:
+    - key_columns:
+      - prior_calendar_year
+      level: Calendar Year
+    secondary_attributes:
+    - unique_name: Calendar Month Name
+      label: Month Name
+      description: Calendar month name (January-December).
+      dataset: dim_date
+      folder: Date Attributes
+      key_columns:
+      - calendar_month_name
+      name_column: calendar_month_name
+      sort_column: calendar_month_name
+  - unique_name: Day
+level_attributes:
+- unique_name: Fiscal Year
+  label: Fiscal Year
+  description: Fiscal year July-June, named by ending year (FY2026 = Jul 2025 - Jun 2026).
+  dataset: dim_date
+  key_columns:
+  - fiscal_year
+  name_column: fiscal_year_label
+  sort_column: fiscal_year
+  time_unit: year
+- unique_name: Fiscal Quarter
+  label: Fiscal Quarter
+  description: Fiscal quarter (e.g. FY2026 Q3 = Jan-Mar 2026).
+  dataset: dim_date
+  key_columns:
+  - fiscal_quarter_label
+  name_column: fiscal_quarter_label
+  sort_column: fiscal_quarter_label
+  time_unit: quarter
+- unique_name: Fiscal Period
+  label: Fiscal Period
+  description: Fiscal period / month (e.g. FY2026 P07 = January 2026).
+  dataset: dim_date
+  key_columns:
+  - fiscal_period_label
+  name_column: fiscal_period_label
+  sort_column: fiscal_period_label
+  time_unit: month
+- unique_name: Day
+  label: Day
+  description: Calendar day; join level for both facts.
+  dataset: dim_date
+  is_unique_key: true
+  key_columns:
+  - date_key
+  name_column: full_date
+  sort_column: date_key
+  time_unit: day
+- unique_name: Calendar Year
+  label: Calendar Year
+  description: Calendar year (January-December).
+  dataset: dim_date
+  key_columns:
+  - calendar_year
+  name_column: calendar_year
+  sort_column: calendar_year
+  time_unit: year
+- unique_name: Calendar Quarter
+  label: Calendar Quarter
+  description: Calendar quarter (e.g. 2026 Q1).
+  dataset: dim_date
+  key_columns:
+  - calendar_quarter_key
+  name_column: calendar_quarter_label
+  sort_column: calendar_quarter_key
+  time_unit: quarter
+- unique_name: Calendar Month
+  label: Calendar Month
+  description: Calendar month (e.g. January 2026).
+  dataset: dim_date
+  key_columns:
+  - year_month
+  name_column: calendar_month_label
+  sort_column: year_month
+  time_unit: month

@@ -1,0 +1,7 @@
+unique_name: Gross Profit Fiscal YTD
+object_type: metric_calc
+label: Gross Profit Fiscal YTD
+description: Gross Profit fiscal year to date.
+expression: CASE WHEN ISEMPTY([Measures].[Gross Profit]) THEN NULL ELSE Aggregate(PeriodsToDate([Date Dimension].[Fiscal
+  Hierarchy].[Fiscal Year], [Date Dimension].[Fiscal Hierarchy].CurrentMember), [Measures].[Gross Profit]) END
+format: "$#,##0.00"

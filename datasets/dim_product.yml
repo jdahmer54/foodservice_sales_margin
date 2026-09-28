@@ -1,0 +1,25 @@
+unique_name: dim_product
+object_type: dataset
+label: dim_product
+description: Products (item numbers) with brand type, brand, category, subcategory and pack size.
+connection_id: Connection - Sales Margin BigQuery
+table: dim_product
+columns:
+- name: product_id
+  data_type: long
+- name: supc
+  data_type: string
+- name: product_description
+  data_type: string
+- name: brand_name
+  data_type: string
+- name: brand_type
+  data_type: string
+- name: category_id
+  data_type: long
+- name: subcategory
+  data_type: string
+- name: pack_size
+  data_type: string
+- name: supplier_id
+  data_type: long

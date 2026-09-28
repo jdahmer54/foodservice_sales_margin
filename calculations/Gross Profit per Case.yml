@@ -1,0 +1,6 @@
+unique_name: Gross Profit per Case
+object_type: metric_calc
+label: Gross Profit per Case
+description: Gross Profit / Cases Sold.
+expression: Divide([Measures].[Gross Profit], [Measures].[Cases Sold])
+format: "$#,##0.00"

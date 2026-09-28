@@ -1,0 +1,9 @@
+unique_name: Invoice Count
+object_type: metric
+label: Invoice Count
+description: Distinct invoices.
+calculation_method: count distinct
+format: "#,##0"
+dataset: fact_sales
+column: invoice_number
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,10 @@
+unique_name: Net Sales
+object_type: metric
+label: Net Sales
+description: 'GOVERNED. Gross sales less discounts and returns (USD): SUM(gross_sales_amount - discount_amount -
+  return_amount).'
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: net_sales_amount
+unrelated_dimensions_handling: repeat

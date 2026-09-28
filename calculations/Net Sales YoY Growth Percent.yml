@@ -1,0 +1,7 @@
+unique_name: Net Sales YoY Growth Percent
+object_type: metric_calc
+label: Net Sales YoY Growth %
+description: Net Sales vs the same period of the prior fiscal year, as a percent.
+expression: CASE WHEN ISEMPTY([Measures].[Net Sales Prior Year]) THEN NULL ELSE Divide([Measures].[Net Sales] -
+  [Measures].[Net Sales Prior Year], [Measures].[Net Sales Prior Year]) END
+format: percent

@@ -1,0 +1,7 @@
+unique_name: Net Sales Prior Year
+object_type: metric_calc
+label: Net Sales Prior Year
+description: Net Sales for the same period of the prior fiscal year.
+expression: CASE WHEN ISEMPTY([Measures].[Net Sales]) THEN NULL ELSE (ParallelPeriod([Date Dimension].[Fiscal Hierarchy].[Fiscal
+  Year], 1, [Date Dimension].[Fiscal Hierarchy].CurrentMember), [Measures].[Net Sales]) END
+format: "$#,##0.00"

@@ -1,0 +1,79 @@
+unique_name: dim_date
+object_type: dataset
+label: dim_date
+description: Calendar day with a July-June fiscal calendar (fiscal year named by its ending year).
+connection_id: Connection - Sales Margin BigQuery
+table: dim_date
+columns:
+- name: date_key
+  data_type: long
+- name: full_date
+  data_type: date
+- name: day_of_week_num
+  data_type: long
+- name: day_of_week_name
+  data_type: string
+- name: is_weekend
+  data_type: boolean
+- name: week_start_date
+  data_type: date
+- name: calendar_month_num
+  data_type: long
+- name: calendar_month_name
+  data_type: string
+- name: calendar_quarter
+  data_type: long
+- name: calendar_year
+  data_type: long
+- name: year_month
+  data_type: string
+- name: month_start_date
+  data_type: date
+- name: fiscal_year
+  data_type: long
+- name: fiscal_year_label
+  data_type: string
+- name: fiscal_quarter
+  data_type: long
+- name: fiscal_quarter_label
+  data_type: string
+- name: fiscal_month_num
+  data_type: long
+- name: fiscal_period_label
+  data_type: string
+- name: prior_fiscal_year
+  data_type: long
+  sql: fiscal_year - 1
+  dialects:
+  - dialect: BigQuery
+    sql: fiscal_year - 1
+- name: prior_calendar_year
+  data_type: long
+  sql: calendar_year - 1
+  dialects:
+  - dialect: BigQuery
+    sql: calendar_year - 1
+- name: calendar_quarter_key
+  data_type: long
+  sql: calendar_year * 10 + calendar_quarter
+  dialects:
+  - dialect: BigQuery
+    sql: calendar_year * 10 + calendar_quarter
+- name: calendar_quarter_label
+  data_type: string
+  sql: concat(cast(calendar_year as string), ' Q', cast(calendar_quarter as string))
+  dialects:
+  - dialect: BigQuery
+    sql: concat(cast(calendar_year as string), ' Q', cast(calendar_quarter as string))
+- name: calendar_month_label
+  data_type: string
+  sql: concat(calendar_month_name, ' ', cast(calendar_year as string))
+  dialects:
+  - dialect: BigQuery
+    sql: concat(calendar_month_name, ' ', cast(calendar_year as string))
+- name: weekend_flag
+  data_type: string
+  sql: case when is_weekend then 'Weekend' else 'Weekday' end
+  dialects:
+  - dialect: BigQuery
+    sql: case when is_weekend then 'Weekend' else 'Weekday' end

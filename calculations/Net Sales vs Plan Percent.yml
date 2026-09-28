@@ -1,0 +1,6 @@
+unique_name: Net Sales vs Plan Percent
+object_type: metric_calc
+label: Net Sales vs Plan %
+description: Net Sales / Net Sales Plan - 1.
+expression: Divide([Measures].[Net Sales] - [Measures].[Net Sales Plan], [Measures].[Net Sales Plan])
+format: percent

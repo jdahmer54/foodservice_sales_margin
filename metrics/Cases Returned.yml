@@ -1,0 +1,9 @@
+unique_name: Cases Returned
+object_type: metric
+label: Cases Returned
+description: Cases credited back.
+calculation_method: sum
+format: "#,##0"
+dataset: fact_sales
+column: cases_returned
+unrelated_dimensions_handling: repeat

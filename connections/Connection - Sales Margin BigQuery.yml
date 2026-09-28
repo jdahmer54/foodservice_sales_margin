@@ -1,0 +1,6 @@
+unique_name: Connection - Sales Margin BigQuery
+label: Connection - Sales Margin BigQuery
+object_type: connection
+as_connection: BigQuery
+database: your-gcp-project
+schema: SYSCO_SALES_MARGIN_DEMO

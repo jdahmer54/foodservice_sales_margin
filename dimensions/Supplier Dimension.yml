@@ -1,0 +1,59 @@
+unique_name: Supplier Dimension
+object_type: dimension
+label: Supplier
+description: Suppliers / vendors by supplier type.
+type: standard
+hierarchies:
+- unique_name: Supplier Hierarchy
+  label: Supplier
+  description: Supplier Type > Supplier.
+  folder: Supplier Attributes
+  levels:
+  - unique_name: Supplier Type
+  - unique_name: Supplier
+    secondary_attributes:
+    - unique_name: Supplier Code
+      label: Supplier Code
+      description: Vendor code.
+      dataset: dim_supplier
+      folder: Supplier Attributes
+      key_columns:
+      - supplier_code
+      name_column: supplier_code
+      sort_column: supplier_code
+    - unique_name: Supplier HQ Country
+      label: Supplier HQ Country
+      description: Supplier headquarters country.
+      dataset: dim_supplier
+      folder: Supplier Attributes
+      key_columns:
+      - hq_country
+      name_column: hq_country
+      sort_column: hq_country
+    - unique_name: Private Label Packer
+      label: Private Label Packer
+      description: Whether the supplier packs private-label product.
+      dataset: dim_supplier
+      folder: Supplier Attributes
+      key_columns:
+      - private_label_packer_flag
+      name_column: private_label_packer_flag
+      sort_column: private_label_packer_flag
+level_attributes:
+- unique_name: Supplier Type
+  label: Supplier Type
+  description: Manufacturer, Packer / Processor, Grower / Producer.
+  dataset: dim_supplier
+  key_columns:
+  - supplier_type
+  name_column: supplier_type
+  sort_column: supplier_type
+- unique_name: Supplier
+  label: Supplier
+  description: Supplier; join level for the sales fact.
+  dataset: dim_supplier
+  is_unique_key: true
+  key_columns:
+  - supplier_id
+  name_column: supplier_name
+  sort_column: supplier_name

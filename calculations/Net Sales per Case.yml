@@ -1,0 +1,6 @@
+unique_name: Net Sales per Case
+object_type: metric_calc
+label: Net Sales per Case
+description: Net Sales / Cases Sold.
+expression: Divide([Measures].[Net Sales], [Measures].[Cases Sold])
+format: "$#,##0.00"

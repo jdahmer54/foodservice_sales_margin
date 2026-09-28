@@ -1,0 +1,9 @@
+unique_name: Returns
+object_type: metric
+label: Returns
+description: Credits for returned cases at net price (USD). Component of Net Sales.
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: return_amount
+unrelated_dimensions_handling: repeat

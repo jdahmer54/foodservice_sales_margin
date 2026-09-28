@@ -1,0 +1,6 @@
+unique_name: Gross Profit Percent Plan
+object_type: metric_calc
+label: Gross Profit % Plan
+description: Gross Profit Plan / Net Sales Plan.
+expression: Divide([Measures].[Gross Profit Plan], [Measures].[Net Sales Plan])
+format: percent

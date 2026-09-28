@@ -1,0 +1,9 @@
+unique_name: Invoice Lines
+object_type: metric
+label: Invoice Lines
+description: Number of invoice lines.
+calculation_method: count non-null
+format: "#,##0"
+dataset: fact_sales
+column: invoice_line_id
+unrelated_dimensions_handling: repeat

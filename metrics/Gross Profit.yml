@@ -1,0 +1,9 @@
+unique_name: Gross Profit
+object_type: metric
+label: Gross Profit
+description: GOVERNED. Net Sales less cost of goods sold (USD).
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: gross_profit_amount
+unrelated_dimensions_handling: repeat

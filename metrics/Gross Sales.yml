@@ -1,0 +1,9 @@
+unique_name: Gross Sales
+object_type: metric
+label: Gross Sales
+description: Extended price before discounts and returns (USD). Component of Net Sales.
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: gross_sales_amount
+unrelated_dimensions_handling: repeat

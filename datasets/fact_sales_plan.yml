@@ -1,0 +1,22 @@
+unique_name: fact_sales_plan
+object_type: dataset
+label: fact_sales_plan
+description: Monthly plan (budget) by operating company x category; plan_month_key is the first day of the fiscal
+  period.
+connection_id: Connection - Sales Margin BigQuery
+table: fact_sales_plan
+columns:
+- name: plan_id
+  data_type: long
+- name: plan_month_key
+  data_type: long
+- name: opco_id
+  data_type: long
+- name: category_id
+  data_type: long
+- name: net_sales_plan
+  data_type: decimal(38,9)
+- name: gross_profit_plan
+  data_type: decimal(38,9)
+- name: cases_plan
+  data_type: long

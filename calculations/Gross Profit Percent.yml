@@ -1,0 +1,7 @@
+unique_name: Gross Profit Percent
+object_type: metric_calc
+label: Gross Profit %
+description: GOVERNED. Gross Profit / Net Sales, ratio of sums at the query grain (never an average of line-level
+  margins).
+expression: Divide([Measures].[Gross Profit], [Measures].[Net Sales])
+format: percent

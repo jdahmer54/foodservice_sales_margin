@@ -1,0 +1,6 @@
+unique_name: Gross Profit Percent Prior Year
+object_type: metric_calc
+label: Gross Profit % Prior Year
+description: Gross Profit % for the same period of the prior fiscal year.
+expression: Divide([Measures].[Gross Profit Prior Year], [Measures].[Net Sales Prior Year])
+format: percent

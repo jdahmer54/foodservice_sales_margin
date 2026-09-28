@@ -1,0 +1,9 @@
+unique_name: Cases Sold
+object_type: metric
+label: Cases Sold
+description: GOVERNED. Cases shipped less cases returned.
+calculation_method: sum
+format: "#,##0"
+dataset: fact_sales
+column: cases_sold
+unrelated_dimensions_handling: repeat

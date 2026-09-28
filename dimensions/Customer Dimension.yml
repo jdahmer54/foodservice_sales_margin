@@ -1,0 +1,70 @@
+unique_name: Customer Dimension
+object_type: dimension
+label: Customer
+description: 'Customer ship-to accounts: Customer Type (Local vs National) > Segment > Parent Account > Customer.'
+type: standard
+hierarchies:
+- unique_name: Customer Hierarchy
+  label: Customer
+  description: Customer Type > Customer Segment > Parent Account > Customer.
+  folder: Customer Attributes
+  levels:
+  - unique_name: Customer Type
+  - unique_name: Customer Segment
+  - unique_name: Parent Account
+  - unique_name: Customer
+    secondary_attributes:
+    - unique_name: Customer Number
+      label: Customer Number
+      description: Account number.
+      dataset: dim_customer
+      folder: Customer Attributes
+      key_columns:
+      - customer_number
+      name_column: customer_number
+      sort_column: customer_number
+    - unique_name: Size Tier
+      label: Size Tier
+      description: Account size tier (A - Key, B - Core, C - Develop).
+      dataset: dim_customer
+      folder: Customer Attributes
+      key_columns:
+      - size_tier
+      name_column: size_tier
+      sort_column: size_tier
+level_attributes:
+- unique_name: Customer Type
+  label: Customer Type
+  description: Local (street) vs National (contract / chain) customers.
+  dataset: dim_customer
+  key_columns:
+  - customer_type
+  name_column: customer_type
+  sort_column: customer_type
+- unique_name: Customer Segment
+  label: Customer Segment
+  description: Restaurant - Independent, Restaurant - Chain, Healthcare, Education, etc.
+  dataset: dim_customer
+  key_columns:
+  - customer_type
+  - customer_segment
+  name_column: customer_segment
+  sort_column: customer_segment
+- unique_name: Parent Account
+  label: Parent Account
+  description: Chain / group / GPO parent account; equals the customer for independents.
+  dataset: dim_customer
+  key_columns:
+  - customer_segment
+  - parent_account_name
+  name_column: parent_account_name
+  sort_column: parent_account_name
+- unique_name: Customer
+  label: Customer
+  description: Customer ship-to account; join level for the sales fact.
+  dataset: dim_customer
+  is_unique_key: true
+  key_columns:
+  - customer_id
+  name_column: customer_name
+  sort_column: customer_name

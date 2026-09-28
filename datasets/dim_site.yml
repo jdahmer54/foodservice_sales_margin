@@ -1,0 +1,25 @@
+unique_name: dim_site
+object_type: dataset
+label: dim_site
+description: Distribution sites (DCs); each belongs to one operating company.
+connection_id: Connection - Sales Margin BigQuery
+table: dim_site
+columns:
+- name: site_id
+  data_type: long
+- name: site_code
+  data_type: string
+- name: site_name
+  data_type: string
+- name: site_type
+  data_type: string
+- name: opco_id
+  data_type: long
+- name: city
+  data_type: string
+- name: state_province
+  data_type: string
+- name: region
+  data_type: string
+- name: country
+  data_type: string

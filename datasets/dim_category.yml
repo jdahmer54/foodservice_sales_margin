@@ -1,0 +1,21 @@
+unique_name: dim_category
+object_type: dataset
+label: dim_category
+description: Product categories and category groups, with a protein flag.
+connection_id: Connection - Sales Margin BigQuery
+table: dim_category
+columns:
+- name: category_id
+  data_type: long
+- name: category_name
+  data_type: string
+- name: category_group
+  data_type: string
+- name: is_protein
+  data_type: boolean
+- name: protein_flag
+  data_type: string
+  sql: case when is_protein then 'Protein' else 'Non-Protein' end
+  dialects:
+  - dialect: BigQuery
+    sql: case when is_protein then 'Protein' else 'Non-Protein' end

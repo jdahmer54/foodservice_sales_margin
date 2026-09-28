@@ -1,0 +1,142 @@
+unique_name: sales_margin_analytics
+object_type: model
+label: Sales & Margin Analytics
+description: Governed sales and margin model for foodservice distribution. Net Sales, Gross Profit, Gross Profit
+  % and Cases Sold are defined once here and consumed by every BI / AI client.
+visible: true
+relationships:
+- unique_name: fact_sales_Date_Dimension
+  from:
+    dataset: fact_sales
+    join_columns:
+    - invoice_date_key
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_sales_Organization_Dimension
+  from:
+    dataset: fact_sales
+    join_columns:
+    - site_id
+  to:
+    dimension: Organization Dimension
+    level: Site
+- unique_name: fact_sales_Product_Dimension
+  from:
+    dataset: fact_sales
+    join_columns:
+    - product_id
+  to:
+    dimension: Product Dimension
+    level: Product
+- unique_name: fact_sales_Customer_Dimension
+  from:
+    dataset: fact_sales
+    join_columns:
+    - customer_id
+  to:
+    dimension: Customer Dimension
+    level: Customer
+- unique_name: fact_sales_Supplier_Dimension
+  from:
+    dataset: fact_sales
+    join_columns:
+    - supplier_id
+  to:
+    dimension: Supplier Dimension
+    level: Supplier
+- unique_name: fact_sales_plan_Date_Dimension
+  from:
+    dataset: fact_sales_plan
+    join_columns:
+    - plan_month_key
+  to:
+    dimension: Date Dimension
+    level: Day
+- unique_name: fact_sales_plan_Organization_Dimension
+  from:
+    dataset: fact_sales_plan
+    join_columns:
+    - opco_id
+  to:
+    dimension: Organization Dimension
+    level: Operating Company
+- unique_name: fact_sales_plan_Product_Dimension
+  from:
+    dataset: fact_sales_plan
+    join_columns:
+    - category_id
+  to:
+    dimension: Product Dimension
+    level: Category
+dimensions:
+- Order Channel Dimension
+metrics:
+- unique_name: Net Sales
+  folder: Sales & Margin
+- unique_name: Gross Profit
+  folder: Sales & Margin
+- unique_name: Cases Sold
+  folder: Sales & Margin
+- unique_name: Gross Sales
+  folder: Sales Components
+- unique_name: Discounts
+  folder: Sales Components
+- unique_name: Returns
+  folder: Sales Components
+- unique_name: Cost of Goods Sold
+  folder: Sales Components
+- unique_name: Cases Shipped
+  folder: Sales Components
+- unique_name: Cases Returned
+  folder: Sales Components
+- unique_name: Invoice Count
+  folder: Activity
+- unique_name: Active Customers
+  folder: Activity
+- unique_name: Invoice Lines
+  folder: Activity
+- unique_name: Net Sales Plan
+  folder: Plan
+- unique_name: Gross Profit Plan
+  folder: Plan
+- unique_name: Cases Plan
+  folder: Plan
+- unique_name: Gross Profit Percent
+  folder: Sales & Margin
+- unique_name: Net Sales per Case
+  folder: Sales & Margin
+- unique_name: Gross Profit per Case
+  folder: Sales & Margin
+- unique_name: Discount Rate
+  folder: Sales Components
+- unique_name: Average Invoice Net Sales
+  folder: Activity
+- unique_name: Net Sales Prior Year
+  folder: Time Intelligence
+- unique_name: Gross Profit Prior Year
+  folder: Time Intelligence
+- unique_name: Cases Sold Prior Year
+  folder: Time Intelligence
+- unique_name: Net Sales YoY Growth Percent
+  folder: Time Intelligence
+- unique_name: Cases Sold YoY Growth Percent
+  folder: Time Intelligence
+- unique_name: Gross Profit Percent Prior Year
+  folder: Time Intelligence
+- unique_name: Gross Profit Percent Change vs Prior Year
+  folder: Time Intelligence
+- unique_name: Net Sales Fiscal YTD
+  folder: Time Intelligence
+- unique_name: Gross Profit Fiscal YTD
+  folder: Time Intelligence
+- unique_name: Net Sales vs Plan
+  folder: Plan
+- unique_name: Gross Profit vs Plan
+  folder: Plan
+- unique_name: Net Sales vs Plan Percent
+  folder: Plan
+- unique_name: Gross Profit vs Plan Percent
+  folder: Plan
+- unique_name: Gross Profit Percent Plan
+  folder: Plan

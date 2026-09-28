@@ -1,0 +1,9 @@
+unique_name: Cases Plan
+object_type: metric
+label: Cases Plan
+description: Planned cases sold by fiscal period x OpCo x category.
+calculation_method: sum
+format: "#,##0"
+dataset: fact_sales_plan
+column: cases_plan
+unrelated_dimensions_handling: repeat

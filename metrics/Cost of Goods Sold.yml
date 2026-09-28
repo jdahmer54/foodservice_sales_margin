@@ -1,0 +1,9 @@
+unique_name: Cost of Goods Sold
+object_type: metric
+label: Cost of Goods Sold
+description: Cost of cases kept by the customer (USD).
+calculation_method: sum
+format: "$#,##0.00"
+dataset: fact_sales
+column: cogs_amount
+unrelated_dimensions_handling: repeat

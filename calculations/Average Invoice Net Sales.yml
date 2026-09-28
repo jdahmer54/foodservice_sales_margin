@@ -1,0 +1,6 @@
+unique_name: Average Invoice Net Sales
+object_type: metric_calc
+label: Average Invoice Net Sales
+description: Net Sales / Invoice Count.
+expression: Divide([Measures].[Net Sales], [Measures].[Invoice Count])
+format: "$#,##0.00"

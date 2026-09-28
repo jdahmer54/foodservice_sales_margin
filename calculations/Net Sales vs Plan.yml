@@ -1,0 +1,6 @@
+unique_name: Net Sales vs Plan
+object_type: metric_calc
+label: Net Sales vs Plan
+description: Net Sales minus Net Sales Plan (USD).
+expression: '[Measures].[Net Sales] - [Measures].[Net Sales Plan]'
+format: "$#,##0.00"

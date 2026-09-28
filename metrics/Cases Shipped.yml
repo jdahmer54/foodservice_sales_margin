@@ -1,0 +1,9 @@
+unique_name: Cases Shipped
+object_type: metric
+label: Cases Shipped
+description: Cases delivered before returns.
+calculation_method: sum
+format: "#,##0"
+dataset: fact_sales
+column: cases_shipped
+unrelated_dimensions_handling: repeat

@@ -1,0 +1,7 @@
+unique_name: Cases Sold Prior Year
+object_type: metric_calc
+label: Cases Sold Prior Year
+description: Cases Sold for the same period of the prior fiscal year.
+expression: CASE WHEN ISEMPTY([Measures].[Cases Sold]) THEN NULL ELSE (ParallelPeriod([Date Dimension].[Fiscal Hierarchy].[Fiscal
+  Year], 1, [Date Dimension].[Fiscal Hierarchy].CurrentMember), [Measures].[Cases Sold]) END
+format: "#,##0"

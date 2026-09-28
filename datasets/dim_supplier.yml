@@ -1,0 +1,27 @@
+unique_name: dim_supplier
+object_type: dataset
+label: dim_supplier
+description: Suppliers / vendors.
+connection_id: Connection - Sales Margin BigQuery
+table: dim_supplier
+columns:
+- name: supplier_id
+  data_type: long
+- name: supplier_code
+  data_type: string
+- name: supplier_name
+  data_type: string
+- name: supplier_type
+  data_type: string
+- name: primary_category_id
+  data_type: long
+- name: hq_country
+  data_type: string
+- name: is_sysco_brand_packer
+  data_type: boolean
+- name: private_label_packer_flag
+  data_type: string
+  sql: case when is_sysco_brand_packer then 'Private Label Packer' else 'National Brand Only' end
+  dialects:
+  - dialect: BigQuery
+    sql: case when is_sysco_brand_packer then 'Private Label Packer' else 'National Brand Only' end

@@ -1,0 +1,8 @@
+unique_name: sales_margin_analytics_catalog
+object_type: catalog
+label: Sales & Margin Analytics
+description: 'Foodservice distribution sales and margin analytics: governed Net Sales, Gross Profit, Gross Profit
+  % and Cases Sold, consumed identically by every BI and AI client.'
+version: 1.7
+aggressive_agg_promotion: false
+build_speculative_aggs: false
