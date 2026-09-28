@@ -1,9 +1,0 @@
-unique_name: Avg_Gross_Margin_Hourly
-object_type: metric
-label: Avg Gross Margin Hourly
-description: Average gross margin per assignment hour (bill rate minus pay rate), USD/hr.
-calculation_method: average
-dataset: fact_placement
-column: gross_margin_hourly
-folder: Bill-Pay Margin Integrity
-unrelated_dimensions_handling: repeat

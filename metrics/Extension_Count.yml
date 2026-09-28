@@ -1,9 +1,0 @@
-unique_name: Extension_Count
-object_type: metric
-label: Extension Count
-description: Count of placement legs that are contract extensions of a previous placement.
-calculation_method: sum
-dataset: fact_placement
-column: is_extension_flag
-folder: Retention, Extension & Redeployment
-unrelated_dimensions_handling: repeat

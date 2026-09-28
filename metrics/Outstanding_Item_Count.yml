@@ -1,9 +1,0 @@
-unique_name: Outstanding_Item_Count
-object_type: metric
-label: Outstanding Item Count
-description: Count of credential items not yet compliant as of the as-of date.
-calculation_method: sum
-dataset: fact_credential_item_enriched
-column: is_outstanding_flag
-folder: Credentialing & Start-Date Risk
-unrelated_dimensions_handling: repeat

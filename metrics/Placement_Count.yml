@@ -1,9 +1,0 @@
-unique_name: Placement_Count
-object_type: metric
-label: Placement Count
-description: Count of placement legs (original bookings + extensions).
-calculation_method: count non-null
-dataset: fact_placement
-column: placement_id
-folder: Bill-Pay Margin Integrity
-unrelated_dimensions_handling: repeat

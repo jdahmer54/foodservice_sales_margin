@@ -1,9 +1,0 @@
-unique_name: Avg_Age_Days_Open
-object_type: metric
-label: Avg Age Days Open
-description: Average days a still-Open requisition has been posted, as of the as-of date.
-calculation_method: average
-dataset: fact_requisition
-column: age_days_as_of_current
-folder: Order-to-Fill Velocity
-unrelated_dimensions_handling: repeat

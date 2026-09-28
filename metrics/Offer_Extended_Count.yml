@@ -1,9 +1,0 @@
-unique_name: Offer_Extended_Count
-object_type: metric
-label: Offer Extended Count
-description: Count of submissions for which a client offer was extended.
-calculation_method: sum
-dataset: fact_submission
-column: is_offer_extended_flag
-folder: Order-to-Fill Velocity
-unrelated_dimensions_handling: repeat

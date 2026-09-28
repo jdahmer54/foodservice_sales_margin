@@ -1,9 +1,0 @@
-unique_name: Avg_Target_Bill_Rate
-object_type: metric
-label: Avg Target Bill Rate
-description: Average client bill rate the requisition was posted at, USD/hr.
-calculation_method: average
-dataset: fact_requisition
-column: target_bill_rate_hourly
-folder: Order-to-Fill Velocity
-unrelated_dimensions_handling: repeat

@@ -1,9 +1,0 @@
-unique_name: Requisition_Count
-object_type: metric
-label: Requisition Count
-description: Count of requisitions (open orders). Base volume measure; contrast Order_Volume (fact_rate_benchmark).
-calculation_method: count non-null
-dataset: fact_requisition
-column: requisition_id
-folder: Order-to-Fill Velocity
-unrelated_dimensions_handling: repeat

@@ -1,9 +1,0 @@
-unique_name: Open_Requisition_Count
-object_type: metric
-label: Open Requisition Count
-description: Count of requisitions with status = Open (still unfilled as of the as-of date).
-calculation_method: sum
-dataset: fact_requisition
-column: is_open_flag
-folder: Order-to-Fill Velocity
-unrelated_dimensions_handling: repeat

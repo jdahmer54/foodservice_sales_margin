@@ -1,9 +1,0 @@
-unique_name: Avg_Market_Benchmark_Bill_Rate
-object_type: metric
-label: Avg Market Benchmark Bill Rate
-description: Engineered external market-rate benchmark, USD/hr, at specialty x market x month grain.
-calculation_method: average
-dataset: fact_rate_benchmark
-column: market_benchmark_bill_rate_hourly
-folder: Rate Competitiveness & Demand
-unrelated_dimensions_handling: repeat

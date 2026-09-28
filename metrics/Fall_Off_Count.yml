@@ -1,9 +1,0 @@
-unique_name: Fall_Off_Count
-object_type: metric
-label: Fall Off Count
-description: Count of placement legs that ended early (before the scheduled end date).
-calculation_method: sum
-dataset: fact_placement
-column: is_fall_off_flag_num
-folder: Retention, Extension & Redeployment
-unrelated_dimensions_handling: repeat
