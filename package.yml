@@ -1,0 +1,6 @@
+version: 1
+packages:
+  - version: commit:a391d54046489417ea0a62d77fefa86cc6cf12e3
+    name: global_shared
+    url: https://github.com/jdahmer54/FoodService_Shared
+    branch: main
