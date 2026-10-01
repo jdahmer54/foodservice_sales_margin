@@ -1,98 +1,113 @@
 unique_name: Organization Dimension
 object_type: dimension
 label: Organization
-description: 'Selling organization: Business Segment > Region > Operating Company > Site (distribution center).'
-type: standard
+description: >-
+  Selling organization: Business Segment > Region > Operating Company > Site
+  (distribution center).
 hierarchies:
-- unique_name: Organization Hierarchy
-  label: Organization
-  description: Business Segment > Region > Operating Company > Site.
-  folder: Organization Attributes
-  levels:
-  - unique_name: Business Segment
-  - unique_name: Region
-  - unique_name: Operating Company
-    secondary_attributes:
-    - unique_name: Region Name
-      label: Region Name
-      description: Region name on its own (e.g. Southwest) for slicing across segments.
-      dataset: dim_operating_company
-      folder: Organization Attributes
-      key_columns:
-      - region
-      name_column: region
-      sort_column: region
-    - unique_name: Country
-      label: Country
-      description: Country of the operating company.
-      dataset: dim_operating_company
-      folder: Organization Attributes
-      key_columns:
-      - country
-      name_column: country
-      sort_column: country
-    - unique_name: OpCo Code
-      label: OpCo Code
-      description: Operating company code.
-      dataset: dim_operating_company
-      folder: Organization Attributes
-      key_columns:
-      - opco_code
-      name_column: opco_code
-      sort_column: opco_code
-  - unique_name: Site
-    secondary_attributes:
-    - unique_name: Site Type
-      label: Site Type
-      description: Broadline DC, Satellite DC, Specialty Meat & Seafood, Chain Distribution DC.
-      dataset: dim_site
-      folder: Organization Attributes
-      key_columns:
-      - site_type
-      name_column: site_type
-      sort_column: site_type
+  - unique_name: Organization Hierarchy
+    label: Organization
+    description: Business Segment > Region > Operating Company > Site.
+    folder: Organization Attributes
+    levels:
+      - unique_name: Business Segment
+      - unique_name: Region
+      - unique_name: Operating Company
+        secondary_attributes:
+          - unique_name: Region Name
+            label: Region Name
+            description: >-
+              Region name on its own (e.g. Southwest) for slicing across
+              segments.
+            dataset: dim_operating_company
+            folder: Organization Attributes
+            key_columns:
+              - region
+            name_column: region
+            sort_column: region
+          - unique_name: Country
+            label: Country
+            description: Country of the operating company.
+            dataset: dim_operating_company
+            folder: Organization Attributes
+            key_columns:
+              - country
+            name_column: country
+            sort_column: country
+          - unique_name: OpCo Code
+            label: OpCo Code
+            description: Operating company code.
+            dataset: dim_operating_company
+            folder: Organization Attributes
+            key_columns:
+              - opco_code
+            name_column: opco_code
+            sort_column: opco_code
+      - unique_name: Site
+        secondary_attributes:
+          - unique_name: Site Type
+            label: Site Type
+            description: >-
+              Broadline DC, Satellite DC, Specialty Meat & Seafood, Chain
+              Distribution DC.
+            dataset: dim_site
+            folder: Organization Attributes
+            key_columns:
+              - site_type
+            name_column: site_type
+            sort_column: site_type
+          - unique_name: state_province
+            label: state_province
+            contains_unique_names: false
+            dataset: dim_site
+            is_unique_key: false
+            key_columns:
+              - state_province
+            name_column: state_province
 level_attributes:
-- unique_name: Business Segment
-  label: Business Segment
-  description: 'Reporting segment: U.S. Foodservice, International Foodservice, SYGMA.'
-  dataset: dim_operating_company
-  key_columns:
-  - business_segment
-  name_column: business_segment
-  sort_column: business_segment
-- unique_name: Region
-  label: Region
-  description: Sales region within a business segment (Northeast, Southeast, Midwest, Southwest, West, Canada, UK
-    & Ireland).
-  dataset: dim_operating_company
-  key_columns:
-  - business_segment
-  - region
-  name_column: region
-  sort_column: region
-- unique_name: Operating Company
-  label: Operating Company
-  description: Operating company (OpCo); join level for the plan fact.
-  dataset: dim_operating_company
-  is_unique_key: true
-  key_columns:
-  - opco_id
-  name_column: opco_name
-  sort_column: opco_name
-- unique_name: Site
-  label: Site
-  description: Distribution site; join level for the sales fact.
-  dataset: dim_site
-  is_unique_key: true
-  key_columns:
-  - site_id
-  name_column: site_name
-  sort_column: site_name
-relationships:
-- from:
+  - unique_name: Business Segment
+    label: Business Segment
+    description: 'Reporting segment: U.S. Foodservice, International Foodservice, SYGMA.'
+    dataset: dim_operating_company
+    key_columns:
+      - business_segment
+    name_column: business_segment
+    sort_column: business_segment
+  - unique_name: Region
+    label: Region
+    description: >-
+      Sales region within a business segment (Northeast, Southeast, Midwest,
+      Southwest, West, Canada, UK & Ireland).
+    dataset: dim_operating_company
+    key_columns:
+      - business_segment
+      - region
+    name_column: region
+    sort_column: region
+  - unique_name: Operating Company
+    label: Operating Company
+    description: Operating company (OpCo); join level for the plan fact.
+    dataset: dim_operating_company
+    is_unique_key: true
+    key_columns:
+      - opco_id
+    name_column: opco_name
+    sort_column: opco_name
+  - unique_name: Site
+    label: Site
+    description: Distribution site; join level for the sales fact.
     dataset: dim_site
-    join_columns:
-    - opco_id
-  to:
-    level: Operating Company
-  type: snowflake
+    is_unique_key: true
+    key_columns:
+      - site_id
+    name_column: site_name
+    sort_column: site_name
+relationships:
+  - from:
+      dataset: dim_site
+      join_columns:
+        - opco_id
+    to:
+      level: Operating Company
+    type: snowflake
+type: standard
